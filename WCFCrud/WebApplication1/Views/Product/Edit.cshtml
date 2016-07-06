@@ -1,0 +1,39 @@
+﻿@{
+    Layout = null;
+}
+@model WebApplication1.ViewModels.ProductViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+    
+        @using (Html.BeginForm("Edit", "Product"))
+        {
+            <table cellpadding="2" cellspacing="2" border="1">
+                <tr>
+                    <td>@Html.LabelFor(model => model.product.City)</td>
+                    <td>
+                        @Html.EditorFor(model => model.product.City)
+                        @Html.HiddenFor(model => model.product.City)
+                    </td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.product.State)</td>
+                    <td>
+                        @Html.ValueFor(model => model.product.State)
+                        @Html.HiddenFor(model => model.product.State)
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><input type="submit" value="save" /></td>
+                </tr>
+             </table>
+        }
+</body>
+</html>

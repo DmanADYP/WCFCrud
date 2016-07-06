@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <a href="@Url.Action("Create","Product")">Add new product</a>
+   <table cellpadding="2" cellspacing="2" border="1">
+       <tr>
+           <th>ID</th>
+           <th>City</th>
+           <th>State</th>
+       </tr>
+       @foreach (var product in ViewBag.listProducts)
+       {
+        <tr>
+            <td>@product.ID</td>
+            <td>@product.City</td>
+            <td>@product.State</td>
+            <td>
+                <a href="@Url.Action("Delete","Product",new { id =
+                         product.ID
+                     })")">Delete</a>
+            </td>
+            <td>
+                <a href="@Url.Action("Edit","Product",new { id =
+                         product.ID
+                     })">Edit</a>
+            </td>
+        </tr>
+       }
+   </table>
+</body>
+</html>
